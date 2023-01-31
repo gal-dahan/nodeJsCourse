@@ -1,3 +1,6 @@
+// firstname: 'Gal',lastname:'Dahan',email:'963gal963@gmail.com' ,id: '207232349'
+// firstname: 'omri ',lastname:'rachmani',id:'206924672'
+
 const mongoose = require('mongoose');
 
 const costSchema = new mongoose.Schema({
