@@ -9,21 +9,11 @@ const getAbout=(req,res)=>{
 }
 
 const setCost = async (req, res) => {
-  
-  const costId =  await Cost.findOne({ id: req.body.id });
-  const userId =  await User.findOne({ id: req.body.user_id });
-  if (costId && costId.id) {
-    res.status(500).send(`Cost with that id ${req.body.id} already exists.`);
-  } else if (!userId) {
-    res.status(500).send(`No user with that id ${req.body.user_id} found.`);
-  } else { 
-      console.log(costId );
   const cost = await new  Cost({
-    user_id: userId.id,
+    user_id: req.body.user_id,
     year: req.body.year,
     month: req.body.month,
     day: req.body.day,
-    id: req.body.id,
     description: req.body.description,
     category: req.body.category,
     sum: req.body.sum,
@@ -37,7 +27,7 @@ const setCost = async (req, res) => {
   console.log(e);
   res.status(500).send(e);
 }
-}
+
 };
 
 const getReport = async (req, res) => {
